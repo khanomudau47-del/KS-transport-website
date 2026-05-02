@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KS Transport Solutions | Book Your Journey</title>
+  <style>
+    :root {
+      --ks-blue: #0B3D91;
+      --ks-dark-blue: #062a63;
+      --ks-light-blue: #E8F0FE;
+      --ks-white: #ffffff;
+      --ks-grey: #f4f6f8;
+      --ks-green: #00A651;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body { background: var(--ks-grey); color: #333; line-height: 1.6; }
+    header { background: var(--ks-blue); color: var(--ks-white); padding: 1rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.logo-section { flex: 1; }
+.logo { font-size: 1.8rem; font-weight: 700; }
+.logo span { color: #7FB3FF; }
+.slogan { font-size: 0.9rem; font-style: italic; opacity: 0.9; }
+.contact-header { text-align: right; }
+.contact-header.label { font-size: 0.8rem; opacity: 0.8; display: block; }
+.contact-header a { color: var(--ks-white); text-decoration: none; font-weight: 600; display: block; }
+.contact-header a:hover { color: #7FB3FF; }
+.hero { background: linear-gradient(rgba(11,61,145,0.85), rgba(11,61,145,0.85)), url('ks-white-bus.jpg'); background-size: cover; background-position: center; color: var(--ks-white); padding: 4rem 5%; text-align: center; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.booking-card { background: var(--ks-white); max-width: 1000px; margin: -3rem auto 2rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 2rem; }
+.booking-card h2 { color: var(--ks-blue); margin-bottom: 1.5rem; text-align: center; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    select, input[type="date"], input[type="number"], button { width: 100%; padding: 0.8rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; }
+    select:focus, input:focus { border-color: var(--ks-blue); outline: none; }
+    button { background: var(--ks-blue); color: var(--ks-white); font-weight: 600; cursor: pointer; border: none; transition: 0.3s; }
+    button:hover { background: var(--ks-dark-blue); }
+.result { margin-top: 1.5rem; padding: 1.5rem; background: var(--ks-light-blue); border-left: 4px solid var(--ks-blue); border-radius: 8px; display: none; }
+.result h3 { color: var(--ks-blue); margin-bottom: 0.5rem; }
+.bus-badge { display: inline-block; padding: 0.3rem 0.8rem; background: var(--ks-blue); color: var(--ks-white); border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-right: 0.5rem; }
+.payment-section { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #ddd; display: none; }
+.payment-section h4 { color: var(--ks-blue); margin-bottom: 1rem; }
+.payment-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.pay-option { border: 2px solid #ddd; border-radius: 8px; padding: 1rem; text-align: center; cursor: pointer; transition: 0.3s; background: var(--ks-white); }
+.pay-option:hover,.pay-option.active { border-color: var(--ks-blue); background: var(--ks-light-blue); }
+.pay-option img { height: 35px; max-width: 100%; margin-bottom: 0.5rem; object-fit: contain; }
+.pay-btn { background: var(--ks-green); margin-top: 1rem; }
+.pay-btn:hover { background: #008543; }
+.routes { max-width: 1000px; margin: 2rem auto; padding: 0 5%; }
+.routes h2 { color: var(--ks-blue); text-align: center; margin-bottom: 1.5rem; }
+.route-table { width: 100%; background: var(--ks-white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.route-table th,.route-table td { padding: 1rem; text-align: left; }
+.route-table th { background: var(--ks-blue); color: var(--ks-white); }
+.route-table tr:nth-child(even) { background: var(--ks-light-blue); }
+.bus-img { width: 100%; max-width: 1000px; margin: 2rem auto; display: block; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    footer { background: var(--ks-dark-blue); color: var(--ks-white); text-align: center; padding: 2rem 5%; margin-top: 3rem; }
+.footer-contacts { margin: 1rem 0; }
+.footer-contacts.label { font-size: 0.9rem; opacity: 0.8; }
+.footer-contacts a { color: #7FB3FF; text-decoration: none; font-weight: 600; margin: 0 0.5rem; }
+    @media (max-width: 600px) {
+.hero h1 { font-size: 1.8rem; }
+.booking-card { margin: -2rem 1rem 2rem; padding: 1.5rem; }
+.route-table { font-size: 0.9rem; }
+.route-table th,.route-table td { padding: 0.6rem; }
+.contact-header { text-align: left; width: 100%; }
+.payment-options { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <div class="logo">KS <span>TRANSPORT SOLUTIONS</span></div>
+      <div class="slogan">DRIVEN BY SAFETY. FOCUSED ON YOU.</div>
+    </div>
+    <div class="contact-header">
+      <span class="label">Contact Number</span>
+      <a href="tel:0681137576">📞 068 113 7576</a>
+      <span class="label">Contact Number</span>
+      <a href="tel:0711631901">📞 071 163 1901</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Travel South Africa in Comfort & Safety</h1>
+    <p>Luxury double & single decker coaches to all major cities</p>
+  </section>
+
+  <div class="booking-card">
+    <h2>Find Your Trip</h2>
+    <div class="form-grid">
+      <select id="routeSelect">
+        <option value="">Select Route</option>
+        <option value="plk-dbn">Polokwane → Durban</option>
+        <option value="gau-dbn">Gauteng → Durban</option>
+        <option value="dbn-mpu">Durban → Mpumalanga</option>
+        <option value="plk-mpu">Polokwane → Mpumalanga</option>
+        <option value="cpt-mpu">Cape Town → Mpumalanga</option>
+        <option value="mpu-cpt">Mpumalanga → Cape Town</option>
+        <option value="mpu-dbn">Mpumalanga → Durban</option>
+        <option value="plk-cpt">Polokwane → Cape Town</option>
+        <option value="plk-nw">Polokwane → North West</option>
+        <option value="plk-wc">Polokwane → Western Cape</option>
+        <option value="gau-nw">Gauteng → North West</option>
+        <option value="gau-wc">Gauteng → Western Cape</option>
+        <option value="plk-ec">Polokwane → Eastern Cape</option>
+        <option value="gau-ec">Gauteng → Eastern Cape</option>
+        <option value="dbn-plk">Durban → Polokwane</option>
+        <option value="cpt-plk">Cape Town → Polokwane</option>
+      </select>
+      <input type="date" id="travelDate" min="">
+      <input type="number" id="passengers" min="1" max="10" value="1" placeholder="Passengers">
+      <button onclick="showTrip()">Check Price & Bus</button>
+    </div>
+
+    <div id="tripResult" class="result">
+      <div id="tripDetails"></div>
+
+      <div id="paymentSection" class="payment-section">
+        <h4>Choose Payment Method</h4>
+        <div class="payment-options">
+          <div class="pay-option" data-method="visa" onclick="selectPayment(this)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="VISA">
+            <div>VISA</div>
+          </div>
+          <div class="pay-option" data-method="mastercard" onclick="selectPayment(this)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+            <div>Mastercard</div>
+          </div>
+          <div class="pay-option" data-method="paypal" onclick="selectPayment(this)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+            <div>PayPal</div>
+          </div>
+          <div class="pay-option" data-method="eft" onclick="selectPayment(this)">
+            <img src="https://i.imgur.com/9X7QY3k.png" alt="Instant EFT by PayFast">
+            <div>Instant EFT</div>
+          </div>
+        </div>
+        <button class="pay-btn" onclick="processPayment()">Pay Now</button>
+        <p style="font-size:0.8rem; margin-top:1rem; opacity:0.7;">Secured payments. Call 068 113 7576 for assistance.</p>
+      </div>
+    </div>
+  </div>
+
+  <img src="ks-white-bus.jpg" alt="KS Transport Solutions White Irizar i8 Coach" class="bus-img">
+
+  <section class="routes">
+    <h2>All Routes & Fares</h2>
+    <table class="route-table">
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th>Distance</th>
+          <th>Bus Type</th>
+          <th>From</th>
+        </tr>
+      </thead>
+      <tbody id="routeTableBody"></tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p><strong>KS TRANSPORT SOLUTIONS</strong> | SAFETY • SERVICE • SOLUTIONS</p>
+    <div class="footer-contacts">
+      <p>Book via WhatsApp or Call:</p>
+      <span class="label">Contact Number: </span><a href="tel:0681137576">068 113 7576</a> |
+      <span class="label">Contact Number: </span><a href="tel:0711631901">071 163 1901</a>
+    </div>
+    <p>© 2026 KS Transport Solutions. Based in Soweto, Gauteng.</p>
+  </footer>
+
+  <script>
+    document.getElementById('travelDate').min = new Date().toISOString().split('T')[0];
+    let selectedPayment = '';
+    let currentTrip = {};
+
+    const routes = {
+      "plk-dbn": { name: "Polokwane → Durban", distance: 670, price: 900, bus: "KS ComfortLiner", note: "Day trip with recliner seats + USB. Departs 07:00 daily." },
+      "gau-dbn": { name: "Gauteng → Durban", distance: 570, price: 780, bus: "KS ComfortLiner", note: "Day service. Departs 08:00 from Park Station." },
+      "dbn-mpu": { name: "Durban → Mpumalanga", distance: 380, price: 560, bus: "KS SwiftLiner", note: "Express to Nelspruit. Departs 09:00 daily." },
+      "plk-mpu": { name: "Polokwane → Mpumalanga", distance: 320, price: 480, bus: "KS SwiftLiner", note: "Express to Nelspruit. Departs 10:00 daily." },
+      "cpt-mpu": { name: "Cape Town → Mpumalanga", distance: 1750, price: 2200, bus: "KS DreamLiner", note: "2-night sleeper with flat beds. Departs 17:00 Tue/Sat." },
+      "mpu-cpt": { name: "Mpumalanga → Cape Town", distance: 1750, price: 2200, bus: "KS DreamLiner", note: "2-night sleeper. Departs 16:00 Wed/Sun." },
+      "mpu-dbn": { name: "Mpumalanga → Durban", distance: 380, price: 560, bus: "KS SwiftLiner", note: "Express from Nelspruit. Departs 14:00 daily." },
+      "plk-cpt": { name: "Polokwane → Cape Town", distance: 1650, price: 2080, bus: "KS DreamLiner", note: "2-night sleeper service. Departs 16:00 Mon/Thu." },
+      "plk-nw": { name: "Polokwane → North West", distance: 350, price: 520, bus: "KS SwiftLiner", note: "Express to Rustenburg. Departs 11:00 daily." },
+      "plk-wc": { name: "Polokwane → Western Cape", distance: 1650, price: 2080, bus: "KS DreamLiner", note: "2-night sleeper to Cape Town. Departs 16:00 Mon/Thu." },
+      "gau-nw": { name: "Gauteng → North West", distance: 150, price: 280, bus: "KS SwiftLiner", note: "Express to Rustenburg. Departs hourly 06:00-18:00." },
+      "gau-wc": { name: "Gauteng → Western Cape", distance: 1400, price: 1780, bus: "KS RoyalLiner", note: "VIP overnight to Cape Town. 2+1 seats, meals. Departs 18:00 daily." },
+      "plk-ec": { name: "Polokwane → Eastern Cape", distance: 1150, price: 1480, bus: "KS RoyalLiner", note: "VIP service to Gqeberha. Departs 17:00 Mon/Wed/Fri." },
+      "gau-ec": { name: "Gauteng → Eastern Cape", distance: 1050, price: 1360, bus: "KS RoyalLiner", note: "VIP service to Gqeberha. Departs 18:00 daily." },
+      "dbn-plk": { name: "Durban → Polokwane", distance: 670, price: 900, bus: "KS ComfortLiner", note: "Day trip. Departs 08:00 daily." },
+      "cpt-plk": { name: "Cape Town → Polokwane", distance: 1650, price: 2080, bus: "KS DreamLiner", note: "2-night sleeper service. Departs 17:00 Tue/Fri." }
+    };
+
+    const tableBody = document.getElementById('routeTableBody');
+    Object.values(routes).forEach(route => {
+      const row = `<tr>
+        <td>${route.name}</td>
+        <td>${route.distance}km</td>
+        <td><span class="bus-badge">${route.bus}</span></td>
+        <td>R${route.price}</td>
+      </tr>`;
+      tableBody.innerHTML += row;
+    });
+
+    function showTrip() {
+      const route = document.getElementById('routeSelect').value;
+      const date = document.getElementById('travelDate').value;
+      const passengers = parseInt(document.getElementById('passengers').value) || 1;
+      const resultDiv = document.getElementById('tripResult');
+      const detailsDiv = document.getElementById('tripDetails');
+      const paymentDiv = document.getElementById('paymentSection');
+
+      if (!route) {
+        resultDiv.style.display = 'block';
+        detailsDiv.innerHTML = '<p>Please select a route first.</p>';
+        paymentDiv.style.display = 'none';
+        return;
+      }
+
+      if (!date) {
+        resultDiv.style.display = 'block';
+        detailsDiv.innerHTML = '<p>Please select a travel date.</p>';
+        paymentDiv.style.display = 'none';
+        return;
+      }
+
+      const trip = routes[route];
+      const totalPrice = trip.price * passengers;
+      const formattedDate = new Date(date).toLocaleDateString('en-ZA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+      currentTrip = {...trip, date: formattedDate, passengers, totalPrice };
+
+      resultDiv.style.display = 'block';
+      detailsDiv.innerHTML = `
+        <h3>${trip.name}</h3>
+        <p><strong>Travel Date:</strong> ${formattedDate}</p>
+        <p><strong>Passengers:</strong> ${passengers}</p>
+        <p><strong>Distance:</strong> ${trip.distance}km</p>
+        <p><strong>Price:</strong> R${trip.price} x ${passengers} = <strong>R${totalPrice}</strong></p>
+        <p><strong>Bus Dispatched:</strong> <span class="bus-badge">${trip.bus}</span></p>
+        <p><strong>Details:</strong> ${trip.note}</p>
+      `;
+      paymentDiv.style.display = 'block';
+    }
+
+    function selectPayment(el) {
+      document.querySelectorAll('.pay-option').forEach(opt => opt.classList.remove('active'));
+      el.classList.add('active');
+      selectedPayment = el.dataset.method;
+    }
+
+    function processPayment() {
+      if (!selectedPayment) {
+        alert('Please select a payment method first.');
+        return;
+      }
+
+      let message = `Ready to pay R${currentTrip.totalPrice} via ${selectedPayment.toUpperCase()} for ${currentTrip.passengers} passenger(s) on ${currentTrip.name}.`;
+
+      if (selectedPayment === 'visa' || selectedPayment === 'mastercard') {
+        message += '\n\nRedirecting to secure card payment...';
+      } else if (selectedPayment === 'paypal') {
+        message += '\n\nRedirecting to PayPal...';
+      } else if (selectedPayment === 'eft') {
+        message += `\n\nFor Instant EFT: Use ref KS${Date.now()}. Call 068 113 7576 for confirmation.`;
+      }
+
+      alert(message + '\n\nNOTE: Connect PayFast/PayPal API to make payments live.');
+    }
+  </script>
+</body>
+</html>
